@@ -20,25 +20,48 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:hint="@string/enter_your_password" />
-
-    <RadioGroup
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/sub"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="Sub" />
+    <CheckBox
+        android:id="@+id/ch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Meat"
+        android:layout_marginLeft="50dp"
+        android:onClick="onCheckboxClicked"/>
+    <CheckBox
+        android:id="@+id/ch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cheese"
+        android:layout_toEndOf="@+id/ch1"
+        android:layout_marginLeft="50dp"
+        android:onClick="onCheckboxClicked"/>
 
-        <RadioButton
-            android:id="@+id/sum"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="Sum" />
-    </RadioGroup>
+
+    </RelativeLayout>
+
+<!--    <RadioGroup-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+<!--        <RadioButton-->
+<!--            android:id="@+id/sub"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="20dp"-->
+<!--            android:text="Sub" />-->
+
+<!--        <RadioButton-->
+<!--            android:id="@+id/sum"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="20dp"-->
+<!--            android:text="Sum" />-->
+<!--    </RadioGroup>-->
 
     <Button
         android:id="@+id/btnAdd"

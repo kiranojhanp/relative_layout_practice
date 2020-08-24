@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -56,6 +57,31 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void onCheckboxClicked(View view) {
+
+        Boolean checked = ((CheckBox) view).isChecked();
+
+        switch (view.getId()){
+            case R.id.ch1:
+                if (checked){
+                    Toast.makeText(LoginActivity.this, "Meat ", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Toast.makeText(LoginActivity.this, "No meat ", Toast.LENGTH_LONG).show();
+                }
+                break;
+
+            case R.id.ch2:
+                if(checked) {
+                    Toast.makeText(LoginActivity.this, "Cheese ", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(LoginActivity.this, "No cheese ", Toast.LENGTH_LONG).show();
+                }
+                break;
+        }
     }
 
 
