@@ -21,6 +21,25 @@
         android:layout_margin="20dp"
         android:hint="@string/enter_your_password" />
 
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/sub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="Sub" />
+
+        <RadioButton
+            android:id="@+id/sum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="Sum" />
+    </RadioGroup>
+
     <Button
         android:id="@+id/btnAdd"
         android:layout_width="match_parent"
