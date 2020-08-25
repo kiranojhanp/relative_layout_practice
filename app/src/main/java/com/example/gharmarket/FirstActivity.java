@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class FirstActivity extends AppCompatActivity {
 
-    Button first,exit;
+    Button first,exit,btn1;
     AlertDialog.Builder builder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,7 @@ public class FirstActivity extends AppCompatActivity {
         setContentView(R.layout.activity_first);
         first = findViewById(R.id.btnPress);
         exit = findViewById(R.id.btnExit);
+        btn1 = findViewById(R.id.btnPress1);
 
         builder = new AlertDialog.Builder(this);
 
@@ -29,6 +30,14 @@ public class FirstActivity extends AppCompatActivity {
                 String name = "Kiran Ojha";
                 Intent i = new Intent(FirstActivity.this, SecondActivity.class);
                 i.putExtra("key" , name);
+                startActivity(i);
+            }
+        });
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(FirstActivity.this, ThirdActivity.class);
                 startActivity(i);
             }
         });
