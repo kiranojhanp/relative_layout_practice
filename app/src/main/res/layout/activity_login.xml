@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".LoginActivity">
 
     <EditText
@@ -18,56 +17,76 @@
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/email"
         android:layout_margin="20dp"
         android:hint="@string/enter_your_password" />
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+
 
     <CheckBox
         android:id="@+id/ch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Meat"
+        android:layout_below="@+id/password"
         android:layout_marginLeft="50dp"
-        android:onClick="onCheckboxClicked"/>
+        android:onClick="onCheckboxClicked"
+        android:text="Meat" />
+
     <CheckBox
         android:id="@+id/ch2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cheese"
-        android:layout_toEndOf="@+id/ch1"
+        android:layout_below="@+id/password"
         android:layout_marginLeft="50dp"
-        android:onClick="onCheckboxClicked"/>
+        android:layout_toEndOf="@+id/ch1"
+        android:layout_toRightOf="@+id/ch1"
+        android:onClick="onCheckboxClicked"
+        android:text="Cheese" />
 
 
-    </RelativeLayout>
+    <!--    <RadioGroup-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content">-->
 
-<!--    <RadioGroup-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content">-->
+    <!--        <RadioButton-->
+    <!--            android:id="@+id/sub"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_margin="20dp"-->
+    <!--            android:text="Sub" />-->
 
-<!--        <RadioButton-->
-<!--            android:id="@+id/sub"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="20dp"-->
-<!--            android:text="Sub" />-->
-
-<!--        <RadioButton-->
-<!--            android:id="@+id/sum"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="20dp"-->
-<!--            android:text="Sum" />-->
-<!--    </RadioGroup>-->
+    <!--        <RadioButton-->
+    <!--            android:id="@+id/sum"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_margin="20dp"-->
+    <!--            android:text="Sum" />-->
+    <!--    </RadioGroup>-->
 
     <Button
         android:id="@+id/btnAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/ch1"
         android:layout_margin="20dp"
         android:text="Add" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/btnExit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnAdd"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Exit" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnExit"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="30dp"
+        android:text="Lmao"
+        android:textSize="32dp"
+        />
+
+</RelativeLayout>

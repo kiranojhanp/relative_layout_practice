@@ -1,7 +1,10 @@
 package com.example.gharmarket;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -19,7 +22,8 @@ import static android.util.Patterns.*;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText email, password;
-    private Button btnLogin;
+    private Button btnLogin, btnClose;
+    AlertDialog.Builder builder;
 //    private RadioButton rdoSum, rdoSub;
 
     @Override
@@ -35,6 +39,8 @@ public class LoginActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         btnLogin = findViewById(R.id.btnAdd);
+
+        builder = new AlertDialog.Builder(this);
 //        rdoSum = findViewById(R.id.sum);
 //        rdoSub = findViewById(R.id.sub);
     }
@@ -57,27 +63,52 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                builder.setMessage("Do you want to close this application?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                                Toast.makeText(LoginActivity.this, "You clicked Yes", Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                                Toast.makeText(LoginActivity.this, "You clicked No", Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+                // Create dialog box
+                AlertDialog alert = builder.create();
+                alert.setTitle("My title");
+                alert.show();
+            }
+        });
     }
 
     public void onCheckboxClicked(View view) {
 
         Boolean checked = ((CheckBox) view).isChecked();
 
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.ch1:
-                if (checked){
+                if (checked) {
                     Toast.makeText(LoginActivity.this, "Meat ", Toast.LENGTH_LONG).show();
-                }
-                else{
+                } else {
                     Toast.makeText(LoginActivity.this, "No meat ", Toast.LENGTH_LONG).show();
                 }
                 break;
 
             case R.id.ch2:
-                if(checked) {
+                if (checked) {
                     Toast.makeText(LoginActivity.this, "Cheese ", Toast.LENGTH_LONG).show();
-                }
-                else {
+                } else {
                     Toast.makeText(LoginActivity.this, "No cheese ", Toast.LENGTH_LONG).show();
                 }
                 break;
@@ -99,8 +130,7 @@ public class LoginActivity extends AppCompatActivity {
             email.setError("Email isn't valid");
             email.requestFocus();
             flag = false;
-        }
-        else if(!isPasswordValid(password.getText().toString())){
+        } else if (!isPasswordValid(password.getText().toString())) {
             password.setError("Password isn't valid");
             password.requestFocus();
             flag = false;
@@ -113,7 +143,7 @@ public class LoginActivity extends AppCompatActivity {
         return email.matches(regex);
     }
 
-    private boolean isPasswordValid(String password){
+    private boolean isPasswordValid(String password) {
 //                 ^                # start-of-string
 //                (?=.*[0-9])       # a digit must occur at least once
 //                (?=.*[a-z])       # a lower case letter must occur at least once
